@@ -10,9 +10,10 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Iterator;
 import java.util.List;
 
-public class CSV {
+public class CSV implements Iterable<CSVLine>{
 	
 	private List<CSVLine> lines;
 	
@@ -40,12 +41,17 @@ public class CSV {
 			}
 		}
 	}
-	public String get(int lineId,int columnId) {
-		return lines.get(lineId).get(columnId);
+	public int getLength() {
+		return lines.size();
 	}
-	public CSV set(int lineId,int columnId,String data) {
-		lines.get(lineId).set(columnId, data);
-		return this;
+	
+	public CSVLine get(int lineId) {
+		return lines.get(lineId);
+	}
+	
+	@Override
+	public Iterator<CSVLine> iterator(){
+		return new CSVIterator(this);
 	}
 	
 }

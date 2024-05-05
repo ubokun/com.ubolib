@@ -15,4 +15,6 @@ public class CSVLine {
 	public String getRawLine() {
 		return String.join(",",cells);
 	}
+	
+	
 }
