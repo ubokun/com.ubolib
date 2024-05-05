@@ -1,4 +1,4 @@
-package com.ubolib.FileIO;
+package com.ubolib.CSV;
 
 public class CSVLine {
 	private String[] cells;

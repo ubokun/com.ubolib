@@ -1,4 +1,4 @@
-package com.ubolib.FileIO;
+package com.ubolib.CSV;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
