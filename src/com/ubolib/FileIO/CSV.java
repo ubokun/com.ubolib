@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -18,7 +19,7 @@ public class CSV implements Iterable<CSVLine>{
 	private List<CSVLine> lines;
 	
 	public CSV() {
-		
+		lines=new ArrayList<CSVLine>();
 	}
 	
 	public void load(String filename) throws IOException,FileNotFoundException{
