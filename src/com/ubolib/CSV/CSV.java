@@ -42,12 +42,26 @@ public class CSV implements Iterable<CSVLine>{
 			}
 		}
 	}
+	
+	public void appendWrite(String filename) throws IOException,FileNotFoundException{
+		try(PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(new File(filename).getAbsolutePath(),true)))){
+			for(CSVLine line:lines) {
+				String lineStr=String.join(",", line.getRawLine());
+				out.printf("%s\n",lineStr);
+			}
+		}
+	}
 	public int getLength() {
 		return lines.size();
 	}
 	
 	public CSVLine get(int lineId) {
 		return lines.get(lineId);
+	}
+	
+	public CSV appendLine(CSVLine line) {
+		lines.add(line);
+		return this;
 	}
 	
 	@Override
